@@ -1,31 +1,4 @@
-# Changelog #
-
-## Changes from older versions: ##
-
-- Readded "and comment.created_utc > start_time:" to the beginning of the main function. I intend to fix it. This function is to make sure that it only replies to comments that were created after the initial launch of the bot.
-
-- Optimized bot for running 24/7 on a hosted server. This was done by creating a While true: Try/Except exception condition which tries to execute the main program, but if it runs into any errors, it doesn't exit. It just restarts. This will also show debug codes.
-
-- Changed spelling of the replies to abide by the theme of the subreddit
-
-- Fixed issue where the elif statements were listed inside the Kitana if statement and the elif statements would never have a condition to run.
-
-# TODO #
-
-- Find solution for bug where bot won't recognize multiple characters if "New kontent for: [character]" is in the comment twice. This is a low priority issue considering that during normal usage, this would never really become an issue provided the subreddit moderators closely follow the format. ***Currently working on this***
-
-- Utilize characters.txt for reading usernames. (File not yet in use. It just exists in the repo for the future.)
-
-
-# Moderator bot for MK11PremiumStore #
-
-Hello! This is a bot that searches a Moderator's distinguished comment for each one of the characters within the file, and mentions the people who subscribed for notifications in a reply to the original comment. scroll down to the bottom to see the instructions on modifying the subscriber lists and reply text.
-
-If you encounter any bugs, the program replies with/to something it shouldn't, or you'd like to suggest a feature, file an issue report, or message me on reddit at u/kapow-bitch and I will see what I can do to improve it.
-
-To use this program, follow these instructions:
-
-- Install Python3. Python2 will not work due to major formatting differences. If you intend to run program on a Linux based operating system or MacOS, scroll down to the respective section below. ***PLEASE NOTE: on the first screen that pops up during the Python installation on Windows, you will see a checkbox that says "add Python3.x to PATH". Check this box. You will have trouble running this bot if you don't check the box.***
+# How to use
 
 - Install Praw. Do this by going into the command prompt and typing "pip install praw" (note: you must have Python installed to do this, and Python must be added to the PATH variable in Windows.)
 - Create an app in the Reddit settings. To do that, follow these steps:
@@ -82,28 +55,4 @@ To use this program, follow these instructions:
 - After you have installed Python3 and pip for Python3, you can follow the rest of the Linux instructions as they are the same.
 
 # Modification instructions
-- To add a user to a notification subscription to a certain character, follow these steps:
-
-    I will use Jade's subscriber list as an example.
-
-    Default code is this for every character:
-
-    Jade_subs_original = ['u/kapow-bitch\n\n' 'u/RikimaruLDR\n\n']
-    Jade_subs = ', '.join(map(str, Jade_subs_original))
-
-
-    let's say you wanted to add u/bdoghomieg123 to the list. then the list would become:
-
-
-    Jade_subs_original = ['u/kapow-bitch\n\n' 'u/RikimaruLDR\n\n' 'u/bdoghomieg123\n\n']
-    Jade_subs = ', '.join(map(str, Jade_subs_original))
-
-
-    Simply add a space, write 'u/<username>\n\n' (with the single quote. Output will be messy if you use traditional quotation marks.) It's Simple as that. Adding "\n\n" at the end of every u/ is vital, as that means "New line" which spaces out the comment to make it readable and less jumbled.
-
-
-- To Remove a user, just remove 'u/[username]' and they will not receive mentions anymore.
-
-- To edit the reply text for a certain character, go to the elif statement with that character's name, find the line that starts with "comment.reply" and edit the text within the quotation marks. (Note: Do not touch the text that says something like "+str(Cetrion_subs[0:])" That is the part of the code that adds all the subscriber's usernames to the comment.)
-
-- If you have any other questions, DM the creator of the bot: u/kapow-bitch on Reddit.
+- to Change the subreddit this bot searches on, change the text inside the quotes of line 27

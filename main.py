@@ -16,9 +16,7 @@ def remove(submission):
                 print("Task Completed Successfully")
             except Exception as e:
                 print(e)
-                input('Press enter to exit...')
-                exit()
-
+                
 
 def main(subreddit):
         while True:
